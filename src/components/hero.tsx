@@ -4,8 +4,10 @@ import Link from "next/link";
 import { ArrowUpRight, Code, Briefcase, User } from "lucide-react";
 import { useState, useEffect } from "react";
 
+type Language = "en" | "es" | "fr"; // Define the language keys
+
 export default function Hero() {
-  const [currentLang, setCurrentLang] = useState("en");
+  const [currentLang, setCurrentLang] = useState<Language>("en"); // Type currentLang to one of "en", "es", or "fr"
   const [typedText, setTypedText] = useState("");
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 

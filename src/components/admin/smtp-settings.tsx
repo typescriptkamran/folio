@@ -13,21 +13,17 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-  CardFooter,
 } from "@/components/ui/card";
 import { FormMessage } from "@/components/form-message";
 import { SubmitButton } from "@/components/submit-button";
-import { Mail, Server, Lock } from "lucide-react";
+import { Lock, Server } from "lucide-react";
 
 type SmtpSettings = Tables<"smtp_settings">;
 
 export function SmtpSettings() {
   const [settings, setSettings] = useState<SmtpSettings | null>(null);
   const [loading, setLoading] = useState(true);
-  const [message, setMessage] = useState<{
-    success?: string;
-    error?: string;
-  } | null>(null);
+  const [message, setMessage] = useState<{ success?: string; error: string } | null>(null); // Make error a required field
   const [testLoading, setTestLoading] = useState(false);
   const supabase = createClient();
 
@@ -104,16 +100,16 @@ export function SmtpSettings() {
       }
 
       await fetchSettings();
-      setMessage({ success: "SMTP settings saved successfully" });
+      setMessage({ success: "SMTP settings saved successfully", error: "" }); // Ensure error is an empty string
     } catch (error) {
       console.error("Error saving SMTP settings:", error);
-      setMessage({ error: "Failed to save SMTP settings" });
+      setMessage({ error: "Failed to save SMTP settings", success: "" }); // Ensure success is an empty string
     }
   };
 
   const testSmtpConnection = async () => {
     if (!settings) {
-      setMessage({ error: "Please save SMTP settings first" });
+      setMessage({ error: "Please save SMTP settings first", success: "" }); // Ensure success is an empty string
       return;
     }
 
@@ -137,7 +133,7 @@ export function SmtpSettings() {
         throw new Error(data.error || "Failed to test SMTP connection");
       }
 
-      setMessage({ success: "SMTP connection successful" });
+      setMessage({ success: "SMTP connection successful", error: "" }); // Ensure error is an empty string
     } catch (error) {
       console.error("Error testing SMTP connection:", error);
       setMessage({
@@ -145,7 +141,8 @@ export function SmtpSettings() {
           error instanceof Error
             ? error.message
             : "Failed to test SMTP connection",
-      });
+        success: "",
+      }); // Ensure success is an empty string
     } finally {
       setTestLoading(false);
     }

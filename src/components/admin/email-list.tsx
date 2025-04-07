@@ -30,14 +30,15 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const supabase = createClient();
 
+  // Debounce search input
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedQuery(searchQuery);
     }, 500);
-
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
+  // Fetch emails
   useEffect(() => {
     fetchEmails();
   }, [page, debouncedQuery]);
@@ -46,7 +47,9 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
     setLoading(true);
     try {
       const response = await fetch(
-        `/api/emails?page=${page}&limit=10${debouncedQuery ? `&search=${encodeURIComponent(debouncedQuery)}` : ""}`,
+        `/api/emails?page=${page}&limit=10${
+          debouncedQuery ? `&search=${encodeURIComponent(debouncedQuery)}` : ""
+        }`
       );
       const { data, meta } = await response.json();
       setEmails(data);
@@ -66,12 +69,21 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
         .eq("id", email.id);
 
       if (!error) {
-        setEmails(
-          emails.map((e) => (e.id === email.id ? { ...e, read: true } : e)),
+        setEmails((prev) =>
+          prev.map((e) => (e.id === email.id ? { ...e, read: true } : e))
         );
       }
     }
     onSelectEmail(email);
+  };
+
+  const formatDate = (date: string | null): string => {
+    if (!date) return "N/A";
+    return new Date(date).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
   };
 
   return (
@@ -104,7 +116,9 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
             {emails.map((email) => (
               <div
                 key={email.id}
-                className={`p-4 border rounded-md cursor-pointer transition-colors ${email.read ? "bg-background" : "bg-muted/20 font-medium"}`}
+                className={`p-4 border rounded-md cursor-pointer transition-colors ${
+                  email.read ? "bg-background" : "bg-muted/20 font-medium"
+                }`}
                 onClick={() => markAsRead(email)}
               >
                 <div className="flex justify-between items-start">
@@ -117,7 +131,7 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
                     <span className="font-medium">{email.sender}</span>
                   </div>
                   <div className="text-xs text-muted-foreground">
-                    {new Date(email.created_at).toLocaleDateString()}
+                    {formatDate(email.created_at ?? null)}
                   </div>
                 </div>
                 <div className="mt-1 text-sm font-medium">{email.subject}</div>

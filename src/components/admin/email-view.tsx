@@ -7,7 +7,6 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -54,7 +53,7 @@ export function EmailView({ email, onBack, onReplySuccess }: EmailViewProps) {
         throw new Error("Failed to fetch SMTP settings");
       }
 
-      // Send email using a serverless function or API
+      // Send email using API
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
@@ -113,7 +112,9 @@ export function EmailView({ email, onBack, onReplySuccess }: EmailViewProps) {
             <div>
               <div className="font-medium">{email.sender}</div>
               <div className="text-xs text-muted-foreground">
-                {new Date(email.created_at).toLocaleString()}
+                {email.created_at
+                  ? new Date(email.created_at).toLocaleString()
+                  : "N/A"}
               </div>
             </div>
           </div>
