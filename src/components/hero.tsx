@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight, Code, Briefcase, User } from "lucide-react";
 import { useState, useEffect } from "react";
 
+import CanvaVideoEmbed from "./CanvaVideoEmbed";
 type Language = "en" | "es" | "fr"; // Define the language keys
 
 export default function Hero() {
@@ -150,10 +151,13 @@ export default function Hero() {
                 <Briefcase className="w-10 h-10 text-indigo-600" />
               </div>
               <div className="w-3/4 h-3/4 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden">
-                <img
-                  src="/profile.jpg"
-                  alt="Muhammad Kamran Ali Rana"
+                <video
+                  src="public/videos/intro.mp4"
                   className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 />
               </div>
             </div>
