@@ -152,7 +152,7 @@ export default function Hero() {
               </div>
               <div className="w-3/4 h-3/4 rounded-full bg-white shadow-xl flex items-center justify-center overflow-hidden">
                 <video
-                  src="public/videos/intro.mp4"
+                  src="/videos/intro.mp4"
                   className="w-full h-full object-cover"
                   autoPlay
                   loop
