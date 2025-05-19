@@ -85,16 +85,16 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
-                <span className="text-gray-600">hello@johndoe.com</span>
+                <span className="text-gray-600">hello@kamranbuilds.com</span>
               </li>
-              <li className="flex items-start">
+{/*               <li className="flex items-start">
                 <Phone className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
                 <span className="text-gray-600">+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-start">
+              </li> */}
+{/*               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
                 <span className="text-gray-600">San Francisco, CA</span>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -123,7 +123,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200">
           <div className="text-gray-600 mb-4 md:mb-0">
-            © {currentYear} John Doe. All rights reserved.
+            © {currentYear} Kamran. All rights reserved.
           </div>
 
           <div className="text-sm text-gray-500">
