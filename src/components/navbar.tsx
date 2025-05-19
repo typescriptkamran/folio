@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import { createClient } from '../../supabase/server'
+// import { createClient } from '../../supabase/server'
 import { Button } from './ui/button'
-import { User, UserCircle } from 'lucide-react'
-import UserProfile from './user-profile'
+// import { User, UserCircle } from 'lucide-react'
+// import UserProfile from './user-profile'
 
 export default async function Navbar() {
-  const supabase = createClient()
+  // const supabase = createClient()
 
-  const { data: { user } } = await (await supabase).auth.getUser()
+  // const { data: { user } } = await (await supabase).auth.getUser()
 
 
   return (
@@ -17,7 +17,7 @@ export default async function Navbar() {
           Logo
         </Link>
         <div className="flex gap-4 items-center">
-          {user ? (
+{/*           {user ? (
             <>
               <Link
                 href="/dashboard"
@@ -44,7 +44,7 @@ export default async function Navbar() {
                 Sign Up
               </Link>
             </>
-          )}
+          )} */}
         </div>
       </div>
     </nav>
