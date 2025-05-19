@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 // import { createClient } from '../../supabase/server'
 import { Button } from './ui/button'
 // import { User, UserCircle } from 'lucide-react'
