@@ -14,7 +14,7 @@ export default async function Navbar() {
     <nav className="w-full border-b border-gray-200 bg-white py-2">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" prefetch className="text-xl font-bold">
-          Logo
+          <Image src="/logo.png" alt="Muhammad Kamran" width={64} height={64}/>
         </Link>
         <div className="flex gap-4 items-center">
 {/*           {user ? (
