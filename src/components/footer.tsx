@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* About Column */}
           <div className="md:col-span-1">
-            <h3 className="font-semibold text-gray-900 mb-4">John Doe</h3>
+            <h3 className="font-semibold text-gray-900 mb-4">Kamran</h3>
             <p className="text-gray-600 mb-4">
               Full Stack Developer & Designer specializing in creating
               beautiful, functional, and accessible web experiences.
