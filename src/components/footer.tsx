@@ -17,14 +17,14 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href=""
+                href="https://x.com/@WillsonTim"
                 className="text-gray-400 hover:text-blue-600 transition-colors"
               >
                 <span className="sr-only">Twitter | X</span>
                 <Twitter className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/typescript-kamran"
                 className="text-gray-400 hover:text-blue-600 transition-colors"
               >
                 <span className="sr-only">LinkedIn</span>
