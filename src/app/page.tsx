@@ -178,7 +178,7 @@ export default async function Home() {
               {
                 icon: <Code className="w-6 h-6" />,
                 title: "Frontend Development",
-                description: "React, Next.js, Vue, HTML5, CSS3, Tailwind",
+                description: "React, Next.js, Vue, HTML5, CSS3, Tailwind"
               },
               {
                 icon: <Server className="w-6 h-6" />,
@@ -244,6 +244,8 @@ export default async function Home() {
                   { name: "Node.js", color: "green" },
                   { name: "MongoDB", color: "yellow" },
                 ],
+                link: 'https://s-necter.vercel.app/en'
+
               },
               {
                 title: "Portfolio Website",
@@ -254,6 +256,8 @@ export default async function Home() {
                   { name: "Tailwind", color: "purple" },
                   { name: "Supabase", color: "green" },
                 ],
+                link: 'https://v0-new-project-nksysrwzj8l.vercel.app/en'
+
               },
               {
                 title: "Task Management App",
@@ -264,26 +268,32 @@ export default async function Home() {
                   { name: "Firebase", color: "yellow" },
                   { name: "Vuetify", color: "blue" },
                 ],
+                link: '#'
+
               },
               {
-                title: "Social Media Dashboard",
+                title: "eResidency App",
                 description:
-                  "An analytics dashboard for tracking social media performance metrics.",
+                  "Your Digital Gateway to Global Business. ",
                 tags: [
                   { name: "React", color: "blue" },
                   { name: "D3.js", color: "orange" },
                   { name: "Express", color: "gray" },
                 ],
+                link: '#'
+
               },
               {
-                title: "Fitness Tracking App",
+                title: "E-commerce Business Services",
                 description:
-                  "A mobile-first application for tracking workouts and nutrition.",
+                  "EcomServicesPro offers a complete suite of solutions, from AI-powered agents to expert human support and cutting-edge website development, designed to scale your online store.",
                 tags: [
                   { name: "React Native", color: "blue" },
                   { name: "GraphQL", color: "pink" },
                   { name: "TypeScript", color: "indigo" },
                 ],
+                link: 'https://ecomservicespro.vercel.app/'
+
               },
               {
                 title: "Real Estate Platform",
@@ -294,6 +304,8 @@ export default async function Home() {
                   { name: "PostgreSQL", color: "blue" },
                   { name: "Mapbox", color: "green" },
                 ],
+                link: '#'
+
               },
             ].map((project, index) => (
               <PortfolioItem
@@ -301,6 +313,8 @@ export default async function Home() {
                 title={project.title}
                 description={project.description}
                 tags={project.tags}
+                link={project.link}
+
               />
             ))}
           </div>

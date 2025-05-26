@@ -10,7 +10,7 @@ interface PortfolioItemProps {
   title: string;
   description: string;
   imageUrl?: string;
-  projectUrl?: string;
+  link?: string;
   tags?: Tag[];
 }
 
@@ -18,7 +18,7 @@ export default function PortfolioItem({
   title,
   description,
   imageUrl,
-  projectUrl = "#",
+  link,
   tags = [],
 }: PortfolioItemProps) {
   // Default tags if none provided
@@ -57,7 +57,7 @@ export default function PortfolioItem({
           ))}
         </div>
         <a
-          href={projectUrl}
+          href={link}
           className="text-blue-600 font-medium hover:text-blue-700 inline-flex items-center"
         >
           View Project
